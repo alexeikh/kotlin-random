@@ -13,7 +13,7 @@ class RestController {
         return RandomNumber(randomNumber)
     }
 
-    @PostMapping(path = ["/random-number-by-post"], consumes = ["application/json"], produces = ["application/json"])
+    @PostMapping("/random-number")
     fun getRandomNumberByPost(@RequestBody maxNumberContainer: MaxNumberContainer): RandomNumber {
         val max = maxNumberContainer.max
         val randomNumber = (1..max).random()
