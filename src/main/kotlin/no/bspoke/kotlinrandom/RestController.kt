@@ -8,15 +8,19 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api")
 class RestController {
     @GetMapping("/random-number")
-    fun getRandomNumber(@RequestParam(defaultValue = "6") max: Int): RandomNumber {
-        val randomNumber = (1..max).random()
-        return RandomNumber(randomNumber)
+    fun getRandomNumber(@RequestParam(defaultValue = "6") max: Int): RandomNumberContainer {
+        val randomNumber = generateRandomNumber(max)
+        return RandomNumberContainer(randomNumber)
     }
 
     @PostMapping("/random-number")
-    fun getRandomNumberByPost(@RequestBody maxNumberContainer: MaxNumberContainer): RandomNumber {
+    fun getRandomNumberByPost(@RequestBody maxNumberContainer: MaxNumberContainer): RandomNumberContainer {
         val max = maxNumberContainer.max
-        val randomNumber = (1..max).random()
-        return RandomNumber(randomNumber)
+        val randomNumber = generateRandomNumber(max)
+        return RandomNumberContainer(randomNumber)
+    }
+
+    fun generateRandomNumber(max: Int): Int {
+        return (1..max).random()
     }
 }

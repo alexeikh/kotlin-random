@@ -1,5 +1,5 @@
 package no.bspoke.kotlinrandom
 
-data class RandomNumber(
+data class RandomNumberContainer(
         val randomNumber: Int
 )
