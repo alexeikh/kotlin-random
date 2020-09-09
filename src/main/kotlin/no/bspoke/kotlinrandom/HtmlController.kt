@@ -10,7 +10,7 @@ class HtmlController {
 
     @GetMapping("/")
     fun homepage(model: Model): String {
-        model["title"] = "Home Page"
+        model["title"] = "Generate Random Numbers"
         return "homepage"
     }
 }
