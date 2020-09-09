@@ -9,9 +9,11 @@
     <div id="random_number_container"></div>
 
     <script>
-    function showRandomNumber() {
-        document.getElementById("random_number_container").innerHTML =
-            Math.ceil(Math.random() * 6);
+    async function showRandomNumber() {
+        const response = await fetch('/api/random-number');
+        const json = await response.json();
+        const parsedJson = JSON.parse(JSON.stringify(json));
+        document.getElementById('random_number_container').innerHTML = parsedJson['randomNumber'];
     }
     </script>
 </body>
