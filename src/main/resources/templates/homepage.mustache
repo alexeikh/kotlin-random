@@ -4,5 +4,15 @@
 </head>
 <body>
     <h1>{{title}}</h1>
+
+    <button onclick="showRandomNumber()">Generate random number</button>
+    <div id="random_number_container"></div>
+
+    <script>
+    function showRandomNumber() {
+        document.getElementById("random_number_container").innerHTML =
+            Math.ceil(Math.random() * 6);
+    }
+    </script>
 </body>
 </html>
