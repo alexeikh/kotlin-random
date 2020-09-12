@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api")
-class RestController {
+class KotlinRestController {
     @GetMapping("/random-number")
     fun getRandomNumber(@RequestParam(defaultValue = "6") max: Int): RandomNumberContainer {
         val randomNumber = generateRandomNumber(max)
